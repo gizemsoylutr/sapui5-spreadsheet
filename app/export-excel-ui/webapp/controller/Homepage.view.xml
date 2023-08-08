@@ -1,0 +1,40 @@
+<mvc:View controllerName="exportexcelui.controller.Homepage"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+        xmlns:smarttable="sap.ui.comp.smarttable"
+    xmlns:sfb="sap.ui.comp.smartfilterbar"
+    xmlns="sap.m">
+      <Page id="page" title="{i18n>title}">
+        <content>
+          <sfb:SmartFilterBar
+                        id="sfbProducts"
+                        entitySet="Calculations"
+                        liveMode="false"
+                        showGoOnFB="true"
+                        showFilterConfiguration="false"
+                        showRestoreButton="false"
+                        useToolbar="false"
+                    />
+ <smarttable:SmartTable
+                        id="stProducts"
+                        smartFilterId="sfbProducts"
+                        header="{i18n>products}"
+                        tableType="ResponsiveTable"
+                        entitySet="Calculations"
+                        enableAutoBinding="true"
+                        showRowCount="true"
+                        class="sapUiResponsiveContentPadding"
+                        beforeRebindTable="onBeforeRebindTable"
+                    >
+                        <Table
+                            id="tProducts"
+                            growing="true"
+                            growingThreshold="20"
+                            growingScrollToLoad="true"
+                            sticky="ColumnHeaders"
+                            mode="SingleSelectLeft"
+                            rememberSelections="false"
+                        />
+                    </smarttable:SmartTable>
+        </content>
+    </Page>
+</mvc:View>
